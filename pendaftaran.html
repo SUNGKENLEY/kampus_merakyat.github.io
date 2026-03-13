@@ -130,17 +130,52 @@ document.getElementById("formPendaftaran").addEventListener("submit", function(e
     let telp = document.getElementById("telp").value;
     let prodi = document.getElementById("prodi").value;
 
-    if (nama === "" || email === "" || telp === "" || prodi === "") {
+    let pesan;
+
+    // menentukan pesan berdasarkan program studi
+    if (prodi === "Teknik Informatika") {
+        pesan = "Selamat datang di jurusan Teknik Informatika! Di sini, kamu akan mempelajari berbagai aspek teknologi komputer, mulai dari pemrograman, jaringan, hingga keamanan siber.";
+    } 
+    else if (prodi === "Sistem Informasi") {
+        pesan = "Selamat datang di jurusan Sistem Informasi! Di sini, kamu akan belajar bagaimana teknologi komputer digunakan untuk mendukung kebutuhan bisnis dan organisasi.";
+    } 
+    else if (prodi === "Manajemen") {
+        pesan = "Selamat datang di jurusan Manajemen! Di sini, kamu akan mempelajari berbagai aspek pengelolaan organisasi dan bisnis.";
+    } 
+    else if (prodi === "Akuntansi") {
+        pesan = "Selamat datang di jurusan Akuntansi! Di sini, kamu akan belajar tentang pencatatan dan pengelolaan keuangan secara sistematis.";
+    } 
+    else {
+        pesan = "Program studi tidak dikenali.";
+    }
+
+    // memasukkan semua data ke array
+    let data = [nama, email, telp, prodi];
+
+    let kosong = false;
+
+    // loop untuk mengecek apakah ada data kosong
+    for (let i = 0; i < data.length; i++) {
+        if (data[i] === "") {
+            kosong = true;
+        }
+    }
+
+    // hasil pengecekan
+    if (kosong) {
         alert("⚠️ Semua data wajib diisi!");
-    } else {
+    } 
+    else {
         alert(
             "✅ Pendaftaran Berhasil!\n\n" +
             "Nama Lengkap: " + nama + "\n" +
             "Email: " + email + "\n" +
             "No. Telepon: " + telp + "\n" +
-            "Program Studi: " + prodi
+            "Program Studi: " + prodi + "\n\n" +
+            "Pesan:\n" + pesan
         );
     }
+
 });
 </script>
 

@@ -285,40 +285,165 @@
 
 <!-- CHAT BOX -->
 <div class="chat-box" id="chatBox">
-    <div class="chat-header reveal">
-        <span>Chat Kampus Merakyat</span>
+    <div class="chat-header">
+        <div class="chat-header-info">
+            <span class="chat-avatar">🎓</span>
+            <div>
+                <strong>Admin Kampus Merakyat</strong>
+                <small>Online</small>
+            </div>
+        </div>
         <button onclick="toggleChat()">✖</button>
     </div>
 
-    <div class="chat-content" id="chatContent reveal">
-        <div class="chat-admin">Halo 👋 Ada yang bisa kami bantu?</div>
+    <div class="chat-content" id="chatContent">
+        <div class="chat-admin">Halo 👋 Selamat datang di <b>Kampus Merakyat</b>! Ada yang bisa kami bantu?</div>
+        <div class="chat-suggestions">
+            <button onclick="quickAsk('info pendaftaran')">📝 Pendaftaran</button>
+            <button onclick="quickAsk('program studi')">📚 Program Studi</button>
+            <button onclick="quickAsk('beasiswa')">🎓 Beasiswa</button>
+            <button onclick="quickAsk('fasilitas')">🏫 Fasilitas</button>
+        </div>
     </div>
 
-    <div class="chat-input reveal">
-        <input type="text" id="chatInput" placeholder="Ketik pesan...">
-        <button onclick="sendMessage()">Kirim</button>
+    <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Ketik pesan..." onkeydown="if(event.key==='Enter') sendMessage()">
+        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
     </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function toggleChat() {
     const chatBox = document.getElementById("chatBox");
-    chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
+    const isOpen = chatBox.style.display === "flex";
+    chatBox.style.display = isOpen ? "none" : "flex";
+}
+
+function quickAsk(text) {
+    document.getElementById("chatInput").value = text;
+    sendMessage();
+}
+
+function getBotReply(msg) {
+    const m = msg.toLowerCase();
+
+    // PENDAFTARAN
+    if (m.includes("daftar") || m.includes("pendaftaran") || m.includes("pmb") || m.includes("registrasi")) {
+        return `📝 <b>Info Pendaftaran Mahasiswa Baru:</b><br><br>
+• Pendaftaran dibuka untuk lulusan SMA/SMK/MA<br>
+• Bisa dilakukan secara <b>online</b> maupun <b>offline</b><br>
+• Syarat: Ijazah/SKL, KTP/KK, Pas foto terbaru<br>
+• Tahun Akademik <b>2026/2027</b> sudah dibuka!<br><br>
+👉 <a href="pendaftaran.html">Klik di sini untuk daftar sekarang</a>`;
+    }
+
+    // PROGRAM STUDI
+    if (m.includes("prodi") || m.includes("program studi") || m.includes("jurusan") || m.includes("kuliah")) {
+        return `📚 <b>Program Studi yang Tersedia:</b><br><br>
+💻 <b>Teknik Informatika</b> – Pemrograman, AI, Jaringan<br>
+🧠 <b>Sistem Informasi</b> – IT + Bisnis & Manajemen<br>
+📊 <b>Manajemen</b> – Bisnis, Kepemimpinan, Strategi<br>
+🧾 <b>Akuntansi</b> – Keuangan, Perpajakan, Audit<br><br>
+👉 <a href="akademik.html">Lihat detail program studi</a>`;
+    }
+
+    // BEASISWA
+    if (m.includes("beasiswa") || m.includes("biaya") || m.includes("gratis") || m.includes("cicilan") || m.includes("ukt")) {
+        return `🎓 <b>Program Beasiswa Kampus Merakyat:</b><br><br>
+• Beasiswa <b>prestasi akademik</b> (nilai tinggi)<br>
+• Beasiswa <b>kurang mampu</b> (berdasarkan ekonomi)<br>
+• Tersedia sistem <b>cicilan biaya kuliah</b><br>
+• Biaya pendidikan <b>terjangkau</b> untuk semua kalangan<br><br>
+📞 Info lebih lanjut: <b>(021) 123456</b>`;
+    }
+
+    // FASILITAS
+    if (m.includes("fasilitas") || m.includes("lab") || m.includes("perpustakaan") || m.includes("kelas") || m.includes("aula") || m.includes("gedung")) {
+        return `🏫 <b>Fasilitas Kampus Merakyat:</b><br><br>
+💻 <b>Laboratorium Komputer</b> – Perangkat modern & lengkap<br>
+📖 <b>Perpustakaan</b> – Ribuan buku & akses digital<br>
+🎓 <b>Ruang Kelas</b> – Ber-AC, proyektor, kondusif<br>
+🏛️ <b>Aula Serbaguna</b> – Untuk seminar & wisuda<br><br>
+✅ Semua fasilitas siap mendukung kegiatan akademik kamu!`;
+    }
+
+    // KONTAK
+    if (m.includes("kontak") || m.includes("telepon") || m.includes("email") || m.includes("alamat") || m.includes("lokasi") || m.includes("dimana")) {
+        return `📍 <b>Kontak Kampus Merakyat:</b><br><br>
+🗺️ Jl. Pendidikan No. 1, Jakarta, Indonesia<br>
+📧 info@kampusmerakyat.ac.id<br>
+📞 (021) 123456<br><br>
+Jam operasional: <b>Senin–Jumat, 08.00–16.00 WIB</b>`;
+    }
+
+    // AKREDITASI / PROFIL
+    if (m.includes("akreditasi") || m.includes("profil") || m.includes("tentang") || m.includes("sejarah") || m.includes("visi") || m.includes("misi")) {
+        return `🏫 <b>Tentang Kampus Merakyat:</b><br><br>
+• Berdiri sejak <b>2005</b><br>
+• Berkomitmen mencetak lulusan <b>unggul & berdaya saing global</b><br>
+• Nilai utama: <b>Integritas, Inovasi, Kolaborasi</b><br><br>
+👉 <a href="profil.html">Lihat profil lengkap kampus</a>`;
+    }
+
+    // SALAM
+    if (m.includes("halo") || m.includes("hai") || m.includes("hello") || m.includes("hi") || m.includes("selamat")) {
+        return `👋 Halo! Selamat datang di Kampus Merakyat!<br><br>
+Kami siap membantu kamu. Silakan tanyakan tentang:<br>
+📝 Pendaftaran &nbsp;|&nbsp; 📚 Program Studi<br>
+🎓 Beasiswa &nbsp;|&nbsp; 🏫 Fasilitas`;
+    }
+
+    // TERIMA KASIH
+    if (m.includes("terima kasih") || m.includes("makasih") || m.includes("thanks") || m.includes("oke") || m.includes("ok")) {
+        return `😊 Sama-sama! Jika ada pertanyaan lain, jangan ragu untuk bertanya ya.<br><br>Semoga bermanfaat! 🎓`;
+    }
+
+    // DEFAULT
+    return `🤔 Maaf, kami belum memahami pertanyaan kamu.<br><br>
+Coba tanyakan tentang:<br>
+📝 <b>Pendaftaran</b> – cara daftar, syarat<br>
+📚 <b>Program Studi</b> – jurusan yang tersedia<br>
+🎓 <b>Beasiswa</b> – info beasiswa & biaya<br>
+🏫 <b>Fasilitas</b> – lab, perpustakaan, kelas<br>
+📍 <b>Kontak</b> – alamat & nomor telepon`;
 }
 
 function sendMessage() {
     const input = document.getElementById("chatInput");
     const content = document.getElementById("chatContent");
+    const text = input.value.trim();
 
-    if (input.value.trim() !== "") {
-        const userMsg = document.createElement("div");
-        userMsg.className = "chat-user";
-        userMsg.textContent = input.value;
+    if (text === "") return;
 
-        content.appendChild(userMsg);
-        input.value = "";
+    // Hapus quick suggestion buttons setelah pertama kali chat
+    const suggestions = content.querySelector(".chat-suggestions");
+    if (suggestions) suggestions.remove();
+
+    // Tambah pesan user
+    const userMsg = document.createElement("div");
+    userMsg.className = "chat-user";
+    userMsg.textContent = text;
+    content.appendChild(userMsg);
+
+    input.value = "";
+    content.scrollTop = content.scrollHeight;
+
+    // Tampilkan typing indicator
+    const typing = document.createElement("div");
+    typing.className = "chat-admin chat-typing";
+    typing.innerHTML = "<span></span><span></span><span></span>";
+    content.appendChild(typing);
+    content.scrollTop = content.scrollHeight;
+
+    // Balas setelah delay
+    setTimeout(() => {
+        typing.remove();
+        const botMsg = document.createElement("div");
+        botMsg.className = "chat-admin";
+        botMsg.innerHTML = getBotReply(text);
+        content.appendChild(botMsg);
         content.scrollTop = content.scrollHeight;
-    }
+    }, 800);
 }
 </script>
 

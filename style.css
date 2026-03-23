@@ -1279,3 +1279,21 @@ header nav {
 }
 
 .chat-input button:hover { background: #1565c0; }
+
+/* ================== TYPEWRITER EFFECT ================== */
+#typewriter {
+    display: inline-block;
+    min-height: 1.2em;
+}
+
+.kursor {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 300;
+    animation: kedip 0.7s step-end infinite;
+}
+
+@keyframes kedip {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}

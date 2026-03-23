@@ -36,8 +36,8 @@
 
 
 <section id="beranda" class="hero">
-    <h2>Selamat Datang di Kampus Merakyat</h2>
-    <p>Kampus unggulan dengan pendidikan berkualitas</p>
+    <h2 id="typewriter"></h2>
+    <p id="heroSub" style="opacity:0; transition: opacity 1s ease;">Kampus unggulan dengan pendidikan berkualitas</p>
 </section>
 
 <section id="statistik" class="section">
@@ -549,6 +549,31 @@ document.querySelectorAll("nav a").forEach(link => {
     if (linkPage === currentPage || (linkPage === "index.html" && currentPage === "")) {
         link.classList.add("active");
     }
+});
+</script>
+
+<script>
+// TYPEWRITER EFFECT
+const teks = "Selamat Datang di Kampus Merakyat";
+let i = 0;
+const el = document.getElementById("typewriter");
+const sub = document.getElementById("heroSub");
+
+function ketik() {
+    if (i < teks.length) {
+        el.innerHTML = teks.substring(0, i + 1) + '<span class="kursor">|</span>';
+        i++;
+        setTimeout(ketik, 80);
+    } else {
+        // Selesai ngetik → hapus kursor kedip, munculkan subtitle
+        el.innerHTML = teks + '<span class="kursor" style="animation: none; opacity:0">|</span>';
+        sub.style.opacity = "1";
+    }
+}
+
+// Mulai setelah halaman load
+window.addEventListener("load", () => {
+    setTimeout(ketik, 500); // delay 500ms sebelum mulai
 });
 </script>
 

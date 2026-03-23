@@ -1297,3 +1297,389 @@ header nav {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0; }
 }
+
+/* ================== DARK MODE ================== */
+
+/* Tombol toggle */
+.dark-toggle {
+    background: transparent;
+    border: 2px solid #1976d2;
+    border-radius: 50px;
+    padding: 5px 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #1976d2;
+    white-space: nowrap;
+}
+
+.dark-toggle:hover {
+    background: #1976d2;
+    color: white;
+}
+
+/* Dark mode - body & background */
+body.dark {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+    color: #e6edf3;
+}
+
+/* Header */
+body.dark header {
+    background: rgba(13, 17, 23, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+body.dark header h1 a {
+    color: #58a6ff;
+}
+
+body.dark nav a {
+    color: #e6edf3;
+}
+
+body.dark nav a:hover {
+    color: #ff9800;
+}
+
+body.dark .dark-toggle {
+    border-color: #58a6ff;
+    color: #58a6ff;
+}
+
+body.dark .dark-toggle:hover {
+    background: #58a6ff;
+    color: #0d1117;
+}
+
+/* Section & Content */
+body.dark .section,
+body.dark .content {
+    background: #161b22;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+body.dark .section h2,
+body.dark .content h2 {
+    color: #58a6ff;
+}
+
+body.dark p, body.dark li {
+    color: #c9d1d9;
+}
+
+/* Statistik */
+body.dark #statistik {
+    background: #0d1117;
+}
+
+body.dark .statistik-card {
+    background: linear-gradient(135deg, #161b22, #21262d);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+body.dark .statistik-card p {
+    color: #8b949e;
+}
+
+/* Cards */
+body.dark .nilai-card,
+body.dark .struktur-card,
+body.dark .fasilitas-card,
+body.dark .berita-card {
+    background: linear-gradient(135deg, #161b22, #21262d);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+body.dark .berita-card h3 {
+    color: #e6edf3;
+}
+
+body.dark .berita-card span {
+    color: #8b949e;
+}
+
+/* Kalender */
+body.dark .kalender-table th {
+    background: #1f6feb;
+}
+
+body.dark .kalender-table td {
+    color: #c9d1d9;
+    border-color: #30363d;
+}
+
+body.dark .kalender-table tr:nth-child(even) td {
+    background: #161b22;
+}
+
+/* FAQ */
+body.dark .faq-item {
+    border-color: #30363d;
+}
+
+body.dark .faq-item summary {
+    background: #21262d;
+    color: #e6edf3;
+}
+
+body.dark .faq-item summary:hover {
+    background: #1f2937;
+}
+
+body.dark .faq-item p {
+    background: #161b22;
+    color: #c9d1d9;
+}
+
+/* Visi Misi */
+body.dark .visi,
+body.dark .misi {
+    background: #21262d;
+}
+
+body.dark .visi h3,
+body.dark .misi h3 {
+    color: #58a6ff;
+}
+
+/* Footer */
+body.dark .footer {
+    background: linear-gradient(135deg, #0d1117, #161b22);
+}
+
+/* Chat Box */
+body.dark .chat-box {
+    background: #161b22;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+body.dark .chat-content {
+    background: #0d1117;
+}
+
+body.dark .chat-admin {
+    background: #21262d;
+    color: #c9d1d9;
+}
+
+body.dark .chat-input input {
+    background: #21262d;
+    border-color: #30363d;
+    color: #e6edf3;
+}
+
+body.dark .chat-suggestions button {
+    background: #21262d;
+    border-color: #30363d;
+    color: #58a6ff;
+}
+
+body.dark .chat-suggestions button:hover {
+    background: #1f6feb;
+    color: white;
+    border-color: #1f6feb;
+}
+
+/* Hamburger dark mode */
+body.dark .hamburger span {
+    background: #58a6ff;
+}
+
+body.dark #navMenu {
+    background: rgba(13,17,23,0.98);
+}
+
+body.dark #navMenu a {
+    color: #e6edf3;
+    border-bottom-color: #30363d;
+}
+
+/* Prestasi list */
+body.dark #prestasi ul li {
+    background: #21262d;
+    color: #58a6ff;
+}
+
+/* Scroll bar dark */
+body.dark ::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.dark ::-webkit-scrollbar-track {
+    background: #0d1117;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 4px;
+}
+
+body.dark ::-webkit-scrollbar-thumb:hover {
+    background: #58a6ff;
+}
+
+/* ================== DARK MODE - HALAMAN LAIN ================== */
+
+/* Form Pendaftaran */
+body.dark .form-card {
+    background: #161b22;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+body.dark .form-card h2 {
+    color: #58a6ff;
+}
+
+body.dark .form-card p {
+    color: #8b949e;
+}
+
+body.dark .input-group label {
+    color: #c9d1d9;
+}
+
+body.dark .input-group input,
+body.dark .input-group select {
+    background: #21262d;
+    border-color: #30363d;
+    color: #e6edf3;
+}
+
+body.dark .input-group input:focus,
+body.dark .input-group select:focus {
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 2px rgba(88,166,255,0.2);
+}
+
+body.dark .input-group select option {
+    background: #21262d;
+    color: #e6edf3;
+}
+
+body.dark .btn-daftar {
+    background: linear-gradient(135deg, #1f6feb, #388bfd);
+}
+
+/* Prodi cards di akademik */
+body.dark #ti,
+body.dark #si,
+body.dark #manajemen,
+body.dark #akuntansi {
+    background: #161b22;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+body.dark #ti h2,
+body.dark #si h2,
+body.dark #manajemen h2,
+body.dark #akuntansi h2 {
+    color: #58a6ff;
+}
+
+body.dark #ti p,
+body.dark #si p,
+body.dark #manajemen p,
+body.dark #akuntansi p {
+    color: #c9d1d9;
+}
+
+/* Nilai cards di profil */
+body.dark .nilai-card h3 {
+    color: #58a6ff;
+}
+
+body.dark .struktur-card h3 {
+    color: #e6edf3;
+}
+
+body.dark .struktur-card p {
+    color: #8b949e;
+}
+
+body.dark .struktur-card img {
+    border-color: #30363d;
+}
+
+body.dark .visi-misi-container .visi,
+body.dark .visi-misi-container .misi {
+    background: #21262d;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Syarat list di pendaftaran */
+body.dark #pendaftaran ul li,
+body.dark section ul li {
+    background: #21262d;
+    color: #58a6ff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ================== DARK MODE - FIX LIST & FORM ================== */
+
+/* List info akademik */
+body.dark #akademik.content {
+    background: #161b22;
+}
+
+body.dark #akademik ul li {
+    background: #21262d !important;
+    color: #c9d1d9 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+body.dark #akademik ul li::before {
+    color: #58a6ff !important;
+}
+
+body.dark #akademik ul li a {
+    color: #58a6ff !important;
+}
+
+body.dark #akademik ul li a:hover {
+    color: #ff9800 !important;
+}
+
+/* Semua section .content dark */
+body.dark section.content {
+    background: #161b22;
+}
+
+/* Semua ul li di dalam section dark */
+body.dark section ul li {
+    background: #21262d !important;
+    color: #c9d1d9 !important;
+}
+
+body.dark section ul li::before {
+    color: #58a6ff !important;
+}
+
+/* Form pendaftaran - section background */
+body.dark section.pendaftaran {
+    background: #0d1117;
+}
+
+body.dark .form-card {
+    background: #161b22 !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+body.dark .input-group input,
+body.dark .input-group select {
+    background: #21262d !important;
+    border-color: #30363d !important;
+    color: #e6edf3 !important;
+}
+
+body.dark .input-group label {
+    color: #c9d1d9 !important;
+}
+
+body.dark .form-card h2 {
+    color: #58a6ff !important;
+}
+
+body.dark .form-card > p {
+    color: #8b949e !important;
+}
